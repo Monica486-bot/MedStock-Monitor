@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+config.local.yml
+config.local.json
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Build artifacts
+dist/
+build/
+
+# Local database files 
+*.sqlite
+*.sqlite3
+*.db
+mongo-data/
+
+# Editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Misc
+*.tmp
+*.bak
