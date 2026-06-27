@@ -40,7 +40,7 @@ Many community pharmacies across Africa still manage medicine inventory using pa
 | Frontend | HTML, CSS, JavaScript |
 | Data Storage | JSON (prototype) |
 | Version Control | Git & GitHub |
-| Future Database | SQLite / MongoDB |
+| Future Database | PostgreSQL |
 | Deployment | Designed for containerization |
 
 ---
@@ -166,10 +166,39 @@ Additional features — authentication, reporting, Docker deployment, and cloud 
 
 | Member | Role |
 |--------|------|
-| Paul | DevOps Lead — Repository setup, CI, branch protection |
+| Paul Rwagasana | DevOps Lead — Repository setup, CI, branch protection |
 | Mika Rurangwa | Backend Developer — Express API, data storage, endpoints |
 | Monica Akoi Dau Ahol | Frontend & Documentation — UI, README, sample data |
-| Cletus | TBD |
+| Cletus Ayeebo Abugre | Frontend Styling — UI design, CSS, visual presentation |
+
+---
+
+## Usage
+
+### View All Medicines
+Open http://localhost:5000 in your browser to see the full inventory dashboard.
+
+### Search a Medicine
+Type a medicine name in the search bar to filter results in real time.
+
+### Add a Medicine
+Click the **Add Medicine** button, fill in the form and click **Add Medicine** to save.
+
+### Adjust Stock
+Enter a positive number (e.g. `10`) to increase or a negative number (e.g. `-5`) to decrease stock, then click **Update**.
+
+### Delete a Medicine
+Click the **Delete** button on any row and confirm to remove it from inventory.
+
+### View Low Stock
+Click **Low Stock** in the sidebar to see all medicines below their minimum threshold.
+
+---
+
+## Links
+
+- [GitHub Projects Board](https://github.com/users/PaulRwagasana/projects/2)
+- [Team Participation Sheet](https://docs.google.com/spreadsheets/d/1blNfxmnIE4V08rAdkrFbVRxIW0tneXAPW_wd-nVdoM0/edit?gid=0#gid=0)
 
 ---
 
