@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedStock Monitor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div>
+        <div class="brand-name">MedStock</div>
+        <div class="brand-sub">Monitor</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-item active" onclick="loadMedicines(); setActive(this)">All Medicines</a>
+      <a class="nav-item" onclick="loadLowStock(); setActive(this)">Low Stock</a>
+    </nav>
+    <div class="sidebar-footer">
+      <p>Africa Community Pharmacy</p>
+      <p class="sf-copy">&copy; 2025 MedStock</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-wrapper">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Inventory Dashboard</h1>
+        <p class="page-sub">Manage and monitor medicine stock levels</p>
+      </div>
+      <div class="topbar-right">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search medicine..." oninput="onSearchInput()" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Stat Cards -->
+    <section class="stats-grid">
+      <div class="stat-card purple">
+        <div class="stat-info">
+          <div class="stat-value" id="statTotal">—</div>
+          <div class="stat-label">Total Medicines</div>
+        </div>
+      </div>
+      <div class="stat-card rose">
+        <div class="stat-info">
+          <div class="stat-value" id="statLow">—</div>
+          <div class="stat-label">Low Stock Items</div>
+        </div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-info">
+          <div class="stat-value" id="statOk">—</div>
+          <div class="stat-label">In Stock Items</div>
+        </div>
+      </div>
+      <div class="stat-card indigo">
+        <div class="stat-info">
+          <div class="stat-value" id="statCats">—</div>
+          <div class="stat-label">Categories</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alert Banner -->
+    <div id="alertBanner" class="alert-banner hidden"></div>
+
+    <!-- Table Section -->
+    <section class="table-section">
+      <div class="table-header">
+        <div class="table-header-left">
+          <h2 class="table-title" id="tableTitle">All Medicines</h2>
+          <span class="table-count" id="tableCount"></span>
+        </div>
+        <button class="btn-add" onclick="openModal()">+ Add Medicine</button>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Medicine Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Threshold</th>
+              <th>Status</th>
+              <th>Adjust Stock</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="medicineBody">
+            <tr><td colspan="8" class="empty-row">Loading inventory...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Add Medicine Modal -->
+  <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Add New Medicine</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <form class="modal-form" onsubmit="submitAddMedicine(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Medicine Name</label>
+            <input type="text" id="fName" placeholder="e.g. Amoxicillin" required />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" id="fCategory" placeholder="e.g. Antibiotic" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" id="fQuantity" placeholder="e.g. 100" min="0" required />
+          </div>
+          <div class="form-group">
+            <label>Threshold</label>
+            <input type="number" id="fThreshold" placeholder="e.g. 20" min="1" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Unit</label>
+          <input type="text" id="fUnit" placeholder="e.g. tablets, capsules, sachets" required />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Add Medicine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
